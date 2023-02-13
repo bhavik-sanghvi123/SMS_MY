@@ -1,0 +1,97 @@
+{
+    "workflowApiVersion": "1.1",
+    "metaData":
+    {
+        "icon": "images/icon.png",
+        "iconSmall": "images/iconSmall.png",
+        "category": "message"
+    },
+
+    "type": "REST",
+    "lang":
+    {
+        "en-US":
+        {
+            "name": "MY SMS Extension",
+            "description": "SMS Application Abbott",
+            "step1Label": "Configure Activity"
+        }
+    },
+    "arguments":
+    {
+        "execute":
+        {
+            "inArguments": [
+              { 
+                "firstName": "{{Contact.Attribute.SMS_Test_MY.FirstName}}",
+                "lastName": "{{Contact.Attribute.SMS_Test_MY.LastName}}", 
+                "phoneNumber": "{{Contact.Attribute.SMS_Test_MY.Mobile}}",
+                "selectedMsgID": "",
+                "campaignName": "",
+                "contactID": "",
+                "smsBoolean": "",
+                "shortMsg": ""
+              }
+            ],
+            "outArguments": [],
+            "url": "https://my-sms-app-tiger-dev.herokuapp.com/journeybuilder/execute",
+            "verb": "POST",
+            "body": "",
+            "header": "",
+            "format": "json",
+            "useJwt": true,
+            "timeout": 10000
+        }
+    },
+    
+    "configurationArguments":
+    {
+        "applicationExtensionKey": "7948f7ed-314b-434f-afbb-54ad0a1a3373",
+        "save":
+        {
+            "url": "https://my-sms-app-tiger-dev.herokuapp.com/journeybuilder/save",
+            "verb": "POST",
+            "useJwt": true
+        },
+        "publish":
+        {
+            "url": "https://my-sms-app-tiger-dev.herokuapp.com/journeybuilder/publish",
+            "verb": "POST",
+            "useJwt": true
+        },
+        "stop":
+        {
+            "url": "https://my-sms-app-tiger-dev.herokuapp.com/journeybuilder/stop",
+            "verb": "POST",
+            "useJwt": true
+        },
+        "validate":
+        {
+            "url": "https://my-sms-app-tiger-dev.herokuapp.com/journeybuilder/validate",
+            "verb": "POST",
+            "useJwt": true
+        }
+    },
+    "wizardSteps": [
+    {
+        "label": "Configure Activity",
+        "key": "step1"
+    }],
+    "userInterfaces":
+    {
+        "configModal": {
+            "height": 700,
+            "width": 1000,
+            "fullscreen": false
+        }
+    },
+    "schema": 
+    {
+        "arguments":{
+            "execute": {
+                "inArguments": [],
+                "outArguments": []
+            }
+        }
+    }
+}
